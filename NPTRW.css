@@ -1,3 +1,6 @@
+html{
+	scroll-behavior: smooth;
+}
 .nav-Img-Size{
 	width: 50px;
 	height: 57.5px;
@@ -25,4 +28,17 @@
 	text-decoration: overline underline;
 	text-decoration-color: #5bc0de;
 	text-decoration-thickness: 2px;
+}
+@media print{
+	body{
+		visibility: hidden;
+		background-color: black;
+	}
+	#tic{
+		visibility: visible;
+		position: absolute;
+		left: 160px;
+		top: 160px;
+.rad{
+	font-size: 2em;
 }

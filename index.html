@@ -24,6 +24,10 @@
 						<a href="index.html" class="nav-link fw-bold text-Transition">Home</a>
 					</li>				
 					<li class="nav-item bg-dark bg-opacity-75 border border-info-subtle m-2">
+						<a href="fare.html" class="nav-link fw-bold text-Transition">Fare Ticket</a>
+					</li>				
+					
+					<li class="nav-item bg-dark bg-opacity-75 border border-info-subtle m-2">
 						<a href="sche.html" class="nav-link fw-bold text-Transition">Schedule</a>
 					</li>					
 					<li class="nav-item bg-dark bg-opacity-75 border border-info-subtle m-2">
@@ -31,31 +35,90 @@
 					</li>
 				</ul>
 				<form class="d-flex">
-					<select id="CLi" class="form-control me-2 fw-bold t-bt text-center" onmouseover="over0()" onmouseout="out0()">
-						<option class="fw-bold bg-secondary text-light text-center" selected disabled>Choose Rail Line</option>
-						<optgroup class="fw-bold text-dark bg-light bg-gradient" label="Rapid Transit"></optgroup>
-							<option class="fw-bold text-light text-center p-2 bg-dark" value="">LRT line 1</option>
-							<option class="fw-bold text-light text-center p-2 bg-dark" value="">LRT line 2</option>
-							<option class="fw-bold text-light text-center p-2 bg-dark" value="">MRT line 3</option>
-							<option class="fw-bold text-light text-center p-2 bg-danger" value="">MRT line 4</option>
-							<option class="fw-bold text-light text-center p-2 bg-danger" value="">MRT line 7</option>
-							<option class="fw-bold text-light text-center p-2 bg-danger" value="">Metro Manila Subway</option>
-						<optgroup class="fw-bold text-dark bg-light bg-gradient" label="PNR">
-							<option class="fw-bold text-light text-center p-2 bg-danger" value="">North-South Commuter Railway</option>
-							<option class="fw-bold text-light text-center p-2 bg-dark" value="">Inter-Provincial Commuter</option>
-						</optgroup>
-						<option class="fw-bold text-light bg-secondary text-center p-2" disabled>Black = Finished | Red = Planned</option>
+					<select id="CLi" class="form-control me-2 fw-bold t-bt text-center" onmouseover="over0()" onmouseout="out0()" onchange="abo0()">
+						<option class="fw-bold bg-secondary text-light text-center" selected disabled value="0">Select</option>
+						<option class="fw-bold text-light text-center p-2 bg-dark" value="1">About MRT 3</option>
+						<option class="fw-bold text-light text-center p-2 bg-dark" value="2">About Train</option>
+						<option class="fw-bold text-light text-center p-2 bg-dark" value="3">About Map</option>
 					</select>
-					<button class=" btn btn-dark fw-bold t-bt" onmouseover="over1()" onmouseout="out1()" onclick="event0()">Submit</button>
 				</form>
 			</div>
 		</div>
 	</nav>
 	<br>
-	<h1 class="p-2 bg-light text-info mt-2 text-center fw-bold border border-info-subtle border-2">FARE GUIDE</h1>
+
+	<h1 class="p-2 bg-light text-info mt-2 text-center fw-bold border border-info-subtle border-2">HOME</h1>
 	<br>
-	<div class="container mt-3 text-center p-2 rounded">tgyh</div>
+	<div class="container mt-3 text-center p-3 rounded">
+		<p class="fw-bold text-info bg-light bg-opacity-75 p-2 fs-3 rounded">Welcome to NPTR (NATIONAL PHILIPPINE TRAIN RAILWAY) Website.<br>Feel free to look around and check about us.<br><br>Get your ticket through website on <b class="text-dark">FARE TICKET</b> button</p>
+	</div>
+	<br><br>
+	<!-- Copy -->
+	<div class="bg-dark container p-2 fw-bold" id="Abo">
+		<div class="row p-2 text-center">
+			<p id="Fll" class="text-left p-2 col-6 bg-opacity-75"></p>
+			<img class="text-left col-6 p-1" id="MRT">
+		</div>
+		<div class="row p-2 text-center">
+			<img class="text-right col-6 p-1" id="MRT1">
+			<p id="Fll1" class="text-right p-2 col-6"></p>
+		</div>
+	</div>
 	<script type="text/javascript">
+		function abo0(){
+			let CLi = document.getElementById('CLi').value
+			let MRT = document.getElementById('MRT')
+			let MRT1 = document.getElementById('MRT1')
+			let Fll = document.getElementById('Fll')
+			let Fll1 = document.getElementById('Fll1')
+			let Abo = document.getElementById('Abo')
+			if (CLi == 0){
+				MRT.src = ""
+				MRT1.src = ""
+				Fll.innerHTML = ""
+				Fll1.innerHTML= ""
+			}
+			if (CLi == 1){
+				document.getElementById('Fll').innerHTML = "Manila Metro Rail Transit System (MRTS) commonly known as the MRT, is a rapid transit system that primarily serves Metro Manila, Philippines. Along with the Manila Light Rail Transit System and the Metro Commuter Line of the Philippine National Railways, the system makes up Metro Manila's rail infrastructure. The MRT's 16.9-kilometer-route consists of 1 line and 13 stations. The first and the only line currently in operation, MRT Line 3 is jointly operated by the Metro Rail Transit Corporation, a privately owned company, and the Department of Transportation through a Build-Lease-Transfer agreement. Line 3 was opened in December 1999 and completed in July 2000. Since then, most of the newly proposed rapid rail lines within Metro Manila that are not under the jurisdiction of the Light Rail Transit Authority are associated with the MRT brand. This includes the Metro Manila Subway (Line 9) and the elevated Line 7 which are being built as of January 2023."
+				MRT.src = "MRT.jpg"
+				MRT1.src = ".jpg"
+				document.getElementById('Fll1').innerHTML = ""
+				Fll.style.color = "#292b2c"
+				Fll.style.backgroundColor = "rgba(247, 247, 247, 0.8)"
+				Fll1.style.color = ""
+				Fll1.style.backgroundColor = ""
+				MRT.style.height = "290"
+				MRT1.style.height = ""
+				Abo.scrollIntoView(true)
+			}
+			if (CLi == 2){
+				document.getElementById('Fll').innerHTML = "The MRTC 3000 class or ČKD Tatra RT8D5M LRV is a first-generation class of high-floor uni-directional light rail vehicles built by Czech tram manufacturer ČKD Tatra. The LRVs are owned by Metro Rail Transit Corporation (MRTC), operated by the Department of Transportation (DOTr) thru DOTr MRT-3, and is currently used on the Manila MRT Line 3. " +
+				    "ČKD Tatra RT8D5M LRVs were the last vehicles made by ČKD Tatra before it was taken over by Siemens."
+				document.getElementById('Fll1').innerHTML = "The MRTC 3100 class or CRRC Dalian 8MLB LRV is the class of second-generation uni-directional light rail vehicles built in China by CNR Dalian, now CRRC Dalian. Since its delivery, most of the trains are still being tested and undergoing final assessments, before being used on regular services on Line 3 of the Manila Metro Rail Transit System. These trains are the first LRVs produced by CNR Dalian, which caused some controversy due to compatibility issues raised by MRTC. The CRRC Dalian 8MLB LRVs are owned by the Philippine government and operated by the Department of Transportation (DOTr)."
+				MRT.src = "3000.jpg"
+				MRT1.src = "3100.jpg"
+				Fll.style.color = "#292b2c"
+				Fll.style.backgroundColor = "rgba(247, 247, 247, 0.8)"
+				Fll1.style.color = "#292b2c"
+				Fll1.style.backgroundColor = "rgba(247, 247, 247, 0.8)"
+				MRT.style.height = "280"
+				MRT1.style.height = "280"
+				Abo.scrollIntoView(true)
+			}
+			if (CLi == 3){
+				Fll.innerHTML =
+				"North Avenue <br> Quezon Avenue <br> Kamuning <br> Araneta Center-Cubao <br> Santolan-Annapolis <br> Ortigas <br> Shaw Boulevard <br> Boni <br> Guadalupe <br> Buendia <br> Ayala <br> Magallanes <br> Taft Avenue"
+				Fll1.innerHTML = ""
+				Fll.style.height = ""
+				Fll.style.color = "#292b2c"
+				Fll.style.backgroundColor = "rgba(247, 247, 247, 0.8)"
+				Fll1.style.backgroundColor = ""
+				MRT.src = "Map.png"
+				MRT1. src =""
+				MRT.style.height = "140"
+				Abo.scrollIntoView(true)
+			}
+		}
 	</script>
 </body>
 </html>
